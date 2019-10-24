@@ -2,7 +2,7 @@ from graphics import *
 from random import randint
 
 def Flash(circ1,circ2):
-    '''Generate a random color for circ1 and paint circ2 with its complimentary color'''
+    '''This function generates a random color for circ1 and paint circ2 with its complimentary color.'''
     r = randint( 0, 255 )
     g = randint( 0, 255 )
     b = randint( 0, 255 )
@@ -12,10 +12,7 @@ def Flash(circ1,circ2):
     circ2.setFill(color_comp)
 
 def DoCircsCollide( circ1, circ2 ):
-    '''Boolean function: returns True only if
-    the two circles collide/overlap.
-    circ1 and circ2 are circle objects.'''
-    
+    '''Boolean function: returns True only if the two circles collide/overlap. circ1 and circ2 are circle objects.'''
     #Extract data from two circle objects:
     p1 = circ1.getCenter()
     r1 = circ1.getRadius()
@@ -29,7 +26,6 @@ def DoCircsCollide( circ1, circ2 ):
 
     # Square of center-to-center distance:
     centdist2 = (x1-x2)**2 + (y1-y2)**2
-    
     if centdist2 < (r1+r2)**2:
         # Collide/overlap:
         return True
@@ -53,7 +49,7 @@ def main():
     circ2 = Circle(p2,r2)
     circ2.setFill("black")
     circ2.draw(win)
-
+    
     while True:
         key = win.getKey()
         print("key=",key)
@@ -75,8 +71,7 @@ def main():
         elif DoCircsCollide(circ1,circ2):
             print("Collission!!!")
             for i in range(100):
-                Flash(circ1,circ2)
-            
+                Flash(circ1,circ2)       
     win.getMouse()
     win.close()
 main()
